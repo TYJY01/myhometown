@@ -74,6 +74,6 @@
 
     initMap();//创建和初始化地图
 </script>
-<img src="/image/园觉洞.png" />
+<img src="/image/园觉洞.png"/>
 <a href="https://baike.baidu.com/item/%E5%9C%86%E8%A7%89%E6%B4%9E/13141?fr=aladdin">安岳县圆觉洞风景区</a>
 </html>
