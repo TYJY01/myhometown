@@ -27,7 +27,7 @@
             word-wrap: break-word;
         }
     </style>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.0&ak=x93W9PhY34OtT003qS5BXpQCVdquLmHx"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.0&ak=GAx6DkvjPf1zXCjGDDcGhjN4rCDYIwml"></script>
 </head>
 </html>
 <body>
