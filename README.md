@@ -1,6 +1,6 @@
 # myhometown
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>百度地图API自定义地图</title>
     <!--引用百度地图API-->
@@ -27,7 +27,7 @@
             word-wrap: break-word;
         }
     </style>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.0&ak=GAx6DkvjPf1zXCjGDDcGhjN4rCDYIwml"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&ak=GAx6DkvjPf1zXCjGDDcGhjN4rCDYIwml"></script>
 </head>
 </html>
 <body>
