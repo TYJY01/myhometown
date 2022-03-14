@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body, html, #allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+    </style>
+    <script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=GAx6DkvjPf1zXCjGDDcGhjN4rCDYIwml"></script>
+    <title>计网作业 唐渝 3190104975</title>
+</head>
+<body>
+    <div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+
+    // 百度地图API功能
+    var map = new BMapGL.Map("allmap");    // 创建Map实例
+    map.centerAndZoom(new BMapGL.Point(105.33, 30.10), 11);  // 初始化地图,设置中心点坐标和地图级别
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+    var point = new BMapGL.Point(111.577, 25.190);
+    var marker = new BMapGL.Marker(point);  // 创建标注
+    map.addOverlay(marker);              // 将标注添加到地图中
+
+    var sContent =
+"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>四川省安岳县</h4>" +
+"< img style='float:right;margin:4px' id='imgDemo' src='https://baike.baidu.com/pic/%E5%AE%89%E5%B2%B3%E5%8E%BF/1042174/1/fcfaaf51f3deb48f9056ff4afb1f3a292df57862?fr=lemma&ct=single#aid=1592917495&pic=faf2b2119313b07e24c0089c07d7912397dd8c21' width='200' height='104' title='安岳柠檬基地'/>" +
+"<p style='margin:0;line-height:1.5;font-size:13px;text-indent:2em'>安岳县，隶属四川省资阳市，位于四川盆地中部，成渝经济区腹心和成都、重庆的直线中点，誉“成渝之心”；地跨东经104°56′51″～105°45′14″，北纬29°40′32″～30°18′53″之间</p >" + "<a style='color:#87CEFA;text-decoration:none;' href=' '>更多信息见百度百科</ a>"
+    "</div>";
+
+    var infoWindow = new BMapGL.InfoWindow(sContent);     // marker添加点击事件
+    marker.addEventListener('click', function () {
+        this.openInfoWindow(infoWindow);
+        // 图片加载完毕重绘infoWindow
+        document.getElementById('imgDemo').onload = function () {
+            infoWindow.redraw(); // 防止在网速较慢时生成的信息框高度比图片总高度小，导致图片部分被隐藏
+        };
+    });
+</script>
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>百度地图API自定义地图</title>
+    <!--引用百度地图API-->
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .iw_poi_title {
+            color: #CC5522;
+            font-size: 14px;
+            font-weight: bold;
+            overflow: hidden;
+            padding-right: 13px;
+            white-space: nowrap;
+        }
+
+        .iw_poi_content {
+            font: 12px arial,sans-serif;
+            overflow: visible;
+            padding-top: 4px;
+            white-space: -moz-pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&ak=GAx6DkvjPf1zXCjGDDcGhjN4rCDYIwml"></script>
+</head>
+</html>
+<body>
+    <!--百度地图容器-->
+    <div style="width:697px;height:550px;border:#ccc solid 1px;" id="dituContent"></div>
+    <img src="lQDPDhs7XQQpbezNA8DNBQCwTZCTLnAi8m0CMe8hB0BBAA_1280_960" width="400" height="300" />
+</body>
+<script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap() {
+        createMap();//创建地图
+        setMapEvent();//设置地图事件
+        addMapControl();//向地图添加控件
+    }
+
+    //创建地图函数：
+    function createMap() {
+        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+        var point = new BMap.Point(105.33, 30.10);//定义一个中心点坐标
+        map.centerAndZoom(point, 17);//设定地图的中心点和坐标并将地图显示在地图容器中
+        window.map = map;//将map变量存储在全局
+    }
+
+    //地图事件设置函数：
+    function setMapEvent() {
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地图
+    }
+
+    //地图控件添加函数：
+    function addMapControl() {
+        //向地图中添加缩放控件
+        var ctrl_nav = new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_LEFT, type: BMAP_NAVIGATION_CONTROL_LARGE });
+        map.addControl(ctrl_nav);
+        //向地图中添加缩略图控件
+        var ctrl_ove = new BMap.OverviewMapControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT, isOpen: 1 });
+        map.addControl(ctrl_ove);
+        //向地图中添加比例尺控件
+        var ctrl_sca = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_BOTTOM_LEFT });
+        map.addControl(ctrl_sca);
+    }
+
+    initMap();//创建和初始化地图
+</script>
+<img src="园觉洞.png" />
+<a href="https://baike.baidu.com/item/%E5%9C%86%E8%A7%89%E6%B4%9E/13141?fr=aladdin">安岳县圆觉洞风景区</a>
+</html>
